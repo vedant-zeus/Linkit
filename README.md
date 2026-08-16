@@ -102,6 +102,12 @@ Create `inventory-dashboard/.env` for local frontend development:
 VITE_API_BASE_URL=http://localhost:3001/api
 ```
 
+For production frontend deployments such as Vercel, set:
+
+```env
+VITE_API_BASE_URL=https://linkit-backend-tw3l.onrender.com/api
+```
+
 ### 3. Create and seed the database
 
 From your MySQL shell or command line, run:
@@ -192,7 +198,7 @@ Admin users can access pricing and analytics pages that are protected in the fro
 
 - The frontend reads its API URL from `VITE_API_BASE_URL`.
 - For local development, set `VITE_API_BASE_URL=http://localhost:3001/api`.
-- For Vercel, set `VITE_API_BASE_URL` to your deployed backend URL, for example `https://your-backend.onrender.com/api`.
+- For Vercel, set `VITE_API_BASE_URL=https://linkit-backend-tw3l.onrender.com/api`.
 - JWT tokens are stored in `localStorage`.
 - Seed data is designed for local demo and development use.
 - The root `package.json` is not the main app entrypoint; most work happens inside `inventory-dashboard/` and `server/`.
