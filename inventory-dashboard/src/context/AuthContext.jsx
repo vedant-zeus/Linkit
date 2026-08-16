@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback } from 'react';
-import client from '../api/client';
+import client, { API_BASE } from '../api/client';
 
 const AuthContext = createContext();
 
@@ -23,7 +23,8 @@ export function AuthProvider({ children }) {
       setUser(data.user);
       return { success: true };
     } catch (err) {
-      const msg = err.response?.data?.error || 'Login failed';
+      const msg = err.response?.data?.error
+        || (err.request ? `Cannot reach backend at ${API_BASE}` : 'Login failed');
       setError(msg);
       return { success: false, error: msg };
     } finally {
